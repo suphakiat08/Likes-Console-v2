@@ -1,0 +1,21 @@
+<mat-toolbar class="container">
+    <button mat-button class="col-md-2 button text-center" [ngStyle]="background('/device')" routerLink="/device">
+        Device
+    </button>
+    <button mat-button class="col-md-2 button text-center" [ngStyle]="background('/monitor')" routerLink="/monitor">
+        Monitor
+    </button>
+    <span class="col-md-8 text-right">
+        <button mat-button class="button" [matMenuTriggerFor]="menu">
+            <span>Suphakiat </span>
+            <i class="material-icons">expand_more</i>
+        </button>
+        <mat-menu #menu="matMenu">
+            <button mat-menu-item style="width: 140px;">
+                <mat-icon>exit_to_app</mat-icon>
+                <span>Logout</span>
+            </button>
+        </mat-menu>
+    </span>
+</mat-toolbar>
+<hr>

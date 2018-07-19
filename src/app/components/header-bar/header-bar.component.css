@@ -1,0 +1,22 @@
+.container {
+    width: 100%;
+    height: 55px;
+    font-size: 13pt;
+    padding: 0%;
+}
+
+.button {
+    height: 56px;
+    font-size: 13pt;
+}
+
+hr {
+    margin: 0%;
+    height: 5px;
+    background-color: #3562be;
+}
+
+.content {
+    min-height: 100%;
+    background-color: #dddddd;
+}

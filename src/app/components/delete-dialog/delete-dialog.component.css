@@ -1,0 +1,17 @@
+.header {
+    font-size: 18pt;
+}
+
+hr {
+    height: 4px;
+    background-color: rgb(168, 38, 28);
+    margin: 10px 0px 20px 0px;
+}
+
+.footer {
+    margin-top: 10px;
+}
+
+.delete {
+    color: rgb(168, 38, 28);
+}

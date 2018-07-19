@@ -1,0 +1,107 @@
+.device-table {
+    margin: 0px auto;
+    width: 75%;
+}
+
+.card {
+    width: 76.9%;
+    margin: 20px auto 0px auto;
+}
+
+.card div .mat-button {
+    width: 100%;
+    height: 50px;
+    font-family: 'Kanit', sans-serif;
+    font-size: 14pt;
+    border-radius: 5px;
+}
+
+.card div .all-device {
+    color: rgb(255, 255, 255);
+    background-color: #3563beef;
+}
+
+.card div .switch-off {
+    color: rgb(255, 255, 255);
+    background-color: rgba(158, 158, 158, 0.548);
+}
+
+.card div .online {
+    color: #fff;
+    background-color: rgba(0, 179, 24, 0.616);
+}
+
+.card div .offline {
+    color: #fff;
+    background-color: rgba(223, 15, 0, 0.603);
+}
+
+table {
+    width: 100%;
+    font-family: 'Kanit', sans-serif;
+}
+
+th {
+    background-color: #3562be;
+    font-size: 12pt;
+    color: #fff;
+}
+
+th.mat-column-position {
+    width: 10%;
+}
+
+th.mat-column-prod_name {
+    width: 20%;
+}
+
+th.mat-column-device {
+    width: 25%;
+}
+
+th.mat-column-switch {
+    width: 10%;
+}
+
+th.mat-column-status {
+    width: 10%;
+}
+
+th.mat-column-operation {
+    width: 15%;
+}
+
+.mat-column-position, .mat-column-switch, .mat-column-status, .mat-column-operation {
+    text-align: center
+}
+
+.add {
+    background-color: rgba(238, 238, 238, 0.959);
+    color: #000000;
+    position: absolute;
+    top: 195px;
+    left: 86%;
+}
+
+.filter-bar {
+    width: 75.1%;
+    margin: 40px auto 20px auto;
+}
+
+.filter {
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 40px;
+    border: 1px solid #ddd;
+    background-image: url('https://png.icons8.com/ios/50/000000/search.png');
+    background-color: rgba(255, 255, 255, 0.877);
+    background-size: 20px;
+    background-position: right 15px bottom 50%; 
+    background-repeat: no-repeat;
+}
+
+.spinner {
+    position: relative;
+    margin: 22% auto;
+}

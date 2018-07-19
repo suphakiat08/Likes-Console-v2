@@ -1,0 +1,18 @@
+<div *ngIf="pageReady">
+  <div class="filter-bar">
+    <input type="text" class="filter" (keyup)="filter($event.target.value)">
+  </div>
+
+  <mat-selection-list #device>
+    <mat-list-option *ngFor="let data of devices?.filteredData" [ngStyle]="listStyle" (click)="submit(data)">
+      <div [ngStyle]="serialStyle">
+        {{data.serial_number}}
+      </div>
+      <div [ngStyle]="detailStyle">
+        {{data.detail}}
+      </div>
+    </mat-list-option>
+    <div *ngIf="devices?.filteredData?.length" class="bottom-line"></div>
+  </mat-selection-list>
+</div>
+<mat-progress-bar class="load" *ngIf="!pageReady" mode="indeterminate"></mat-progress-bar>

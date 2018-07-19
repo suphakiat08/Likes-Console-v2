@@ -1,0 +1,27 @@
+.filter-bar {
+    width: 100%;
+    margin: 0px auto 20px auto;
+}
+
+.filter {
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    padding-right: 40px;
+    border: 1px solid #ddd;
+    background-image: url('https://png.icons8.com/ios/50/000000/search.png');
+    background-color: rgba(255, 255, 255, 0.877);
+    background-size: 20px;
+    background-position: right 15px bottom 50%; 
+    background-repeat: no-repeat;
+}
+
+.bottom-line {
+    width: 100%; 
+    border-top: 1px solid #dfdfdf;
+}
+
+.load {
+    width: 50%;
+    margin: 62% auto;
+}

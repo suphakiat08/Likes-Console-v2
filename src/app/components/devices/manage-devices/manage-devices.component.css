@@ -1,0 +1,31 @@
+.header {
+    font-size: 18pt;
+}
+
+hr {
+    height: 4px;
+    background-color: #3562be;
+    margin: 10px 0px 20px 0px;
+}
+
+.form {
+    max-width: 800px;
+    width: 100%;
+}
+
+.form-field {
+    width: 100%;
+}
+
+.footer {
+    margin-top: 10px;
+}
+
+.submit {
+    color: rgb(19, 116, 45);
+    margin-right: 10px;
+}
+
+.cancel {
+    color: rgb(168, 38, 28);
+}

@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+/* font */
+@import url('https://fonts.googleapis.com/css?family=Kanit');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css');
+@import url('https://fonts.googleapis.com/css?family=Kanit:300,400|Noto+Sans:400,700|Roboto:300,400,500');
+
+body {
+    background-color: #dddddd;
+    font-family: 'Kanit', sans-serif;
+}
+
+.mat-pseudo-checkbox-checked {
+    background: #3562be;
+}

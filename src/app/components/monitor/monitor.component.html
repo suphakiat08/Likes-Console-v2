@@ -1,0 +1,83 @@
+<div *ngIf="pageReady">
+  <div class="filter-bar">
+    <input type="text" class="filter" (keyup)="filter($event.target.value)">
+  </div>
+
+  <div class="mat-elevation-z8 device-table">
+    <table mat-table [dataSource]="dataSource">
+      <ng-container matColumnDef="position">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;">No.</th>
+        <td mat-cell *matCellDef="let i = index">{{i + 1}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="prod_name">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;">Product name</th>
+        <td mat-cell *matCellDef="let data">{{data.prod_name}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="device">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;">Device</th>
+        <td mat-cell *matCellDef="let data">{{data.device?.detail}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="switch">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;">Switch</th>
+        <td mat-cell *matCellDef="let data">
+          <mat-slide-toggle color="primary" (change)="switchChange(data)" [checked]="data.switch"></mat-slide-toggle>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;">Status</th>
+        <td mat-cell *matCellDef="let data">
+          <div [ngStyle]="statusStyle(data.status)">{{setStatus(data.status)}}</div>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="operation">
+        <th mat-header-cell *matHeaderCellDef style="text-align: center;">Action</th>
+        <td mat-cell *matCellDef="let data">
+          <button mat-button (click)="openDialogEdit(data)">
+            <i class="material-icons">edit</i>
+          </button>
+          <button mat-button (click)="openDialogDelete(data._id, data.device.serial_number)">
+            <i class="material-icons">delete</i>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [pageSizeOptions]="[10, 20, 50]" showFirstLastButtons></mat-paginator>
+  </div>
+
+  <button mat-fab class="add" (click)="openDialogAdd()">
+    <i class="material-icons">add</i>
+  </button>
+
+  <div class="row card">
+    <div class="col-md-3 text-center">
+      <button mat-button class="all-device" (click)="filterStatus('')">
+        {{dataSource?.data?.length}} device.
+      </button>
+    </div>
+    <div class="col-md-3 text-center">
+      <button mat-button class="switch-off" (click)="filterStatus('switch off')">
+        Switch off {{dataStatus?.switch_off}} device.
+      </button>
+    </div>
+    <div class="col-md-3 text-center">
+      <button mat-button class="online" (click)="filterStatus('online')">
+        Online {{dataStatus?.online}} device.
+      </button>
+    </div>
+    <div class="col-md-3 text-center">
+      <button mat-button class="offline" (click)="filterStatus('offline')">
+        Offline {{dataStatus?.offline}} device.
+      </button>
+    </div>
+  </div>
+</div>
+<mat-spinner class="spinner" *ngIf="!pageReady"></mat-spinner>

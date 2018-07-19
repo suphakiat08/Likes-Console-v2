@@ -1,0 +1,41 @@
+.header {
+    font-size: 18pt;
+}
+
+.hr-header {
+    height: 4px;
+    background-color: #3562be;
+    margin: 10px 0px 20px 0px;
+}
+
+.hr-promotion {
+    height: 2px;
+    background-color: #3562be;
+    margin: 0px 0px 20px 0px;
+}
+
+.form {
+    max-width: 800px;
+    width: 100%;
+}
+
+.checkbox {
+    margin-bottom: 20px;
+}
+
+.form-field {
+    width: 100%;
+}
+
+.footer {
+    margin-top: 10px;
+}
+
+.submit {
+    margin-right: 10px;
+    color: rgb(19, 116, 45);
+}
+
+.cancel {
+    color: rgb(168, 38, 28);
+}

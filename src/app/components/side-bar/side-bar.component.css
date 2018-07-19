@@ -1,0 +1,59 @@
+.icons {
+    margin-top: 18px;
+    margin-bottom: 25px;
+}
+
+hr {
+    height: 2px;
+    background-color: #fff;
+    margin-bottom: 35px;
+}
+
+.font-head {
+    font-size: 14pt;
+    color: #fff;
+    padding-left: 12px;
+}
+
+.font-content {
+    max-width: 275px;
+    word-wrap: break-word;
+    font-size: 10pt;
+    color: #fff;
+    padding-left: 25px;
+    margin-bottom: 15px;
+}
+
+.count {
+    text-align: center;
+    width: 250px;
+    height: 45px;
+    font-size: 16pt;
+    margin: 20px auto 40px auto;
+    padding: 8px;
+    border-radius: 10px;
+    background-color: #fff;
+}
+
+.count .no-token {
+    color: #444;
+}
+
+.count .active {
+    color: rgb(19, 116, 45);
+}
+
+.count .expire {
+    color: rgb(168, 38, 28);
+}
+
+.button .generate {
+    width: 120px;
+    color: rgb(58, 146, 82);
+}
+
+.button .clear {
+    margin-left: 5px;
+    width: 120px;
+    color: rgb(151, 56, 43);
+}

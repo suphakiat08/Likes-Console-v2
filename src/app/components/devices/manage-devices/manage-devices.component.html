@@ -1,0 +1,34 @@
+<form class="form" [formGroup]="mainGroup" autocomplete="off">
+  <span class="header">Client Details</span>
+  <hr>
+  <div>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Serial Number</mat-label>
+      <input matInput formControlName="serial_number" [errorStateMatcher]="matcher" maxlength="16">
+      <mat-error *ngIf="mainGroup.get('serial_number').hasError('required')">
+        Please enter the correct Serial number.
+      </mat-error>
+      <mat-error *ngIf="mainGroup.get('serial_number').hasError('minlength')">
+        Serial Number invalid.
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div>
+    <mat-form-field appearance="outline" class="form-field">
+      <mat-label>Detail</mat-label>
+      <textarea matInput formControlName="detail" [errorStateMatcher]="matcher" rows="3"></textarea>
+      <mat-error *ngIf="mainGroup.get('detail').hasError('required')">
+        Please enter the Detail.
+      </mat-error>
+    </mat-form-field>
+  </div>
+  <div class="rows footer">
+    <div class="col-sm-4">
+      <button mat-raised-button type="reset">Clear</button>
+    </div>
+    <div class="col-sm-8 text-right">
+      <button mat-raised-button class="submit" (click)="submit()">Submit</button>
+      <button mat-raised-button class="cancel" mat-dialog-close>Cancel</button>
+    </div>
+  </div>
+</form>

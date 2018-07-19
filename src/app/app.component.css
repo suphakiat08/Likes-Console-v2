@@ -1,0 +1,18 @@
+.drawer {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+
+.side-bar {
+    position: fixed;
+    width: 15%;
+    min-width: 300px;
+    background-color: #3562be;
+}
+
+.header-bar {
+    position: fixed;
+    width: 85%;
+    height: 100%;
+}
