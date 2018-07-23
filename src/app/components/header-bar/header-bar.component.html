@@ -7,11 +7,11 @@
     </button>
     <span class="col-md-8 text-right">
         <button mat-button class="button" [matMenuTriggerFor]="menu">
-            <span>Suphakiat </span>
+            <span>{{name}} </span>
             <i class="material-icons">expand_more</i>
         </button>
         <mat-menu #menu="matMenu">
-            <button mat-menu-item style="width: 140px;">
+            <button mat-menu-item style="width: 140px;" (click)="logout()">
                 <mat-icon>exit_to_app</mat-icon>
                 <span>Logout</span>
             </button>

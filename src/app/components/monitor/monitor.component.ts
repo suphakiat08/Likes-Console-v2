@@ -77,7 +77,6 @@ export class MonitorComponent implements OnInit {
       str.trim().toLowerCase();
     this.filter_temp = str;
     this.dataSource.filter = filter;
-    console.log(filter);
   }
 
   filterStatus(status) {

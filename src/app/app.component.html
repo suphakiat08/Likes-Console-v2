@@ -1,12 +1,14 @@
-<mat-drawer-container class="drawer">
-    <mat-drawer class="side-bar" mode="side" opened>
-        <app-side-bar></app-side-bar>
-    </mat-drawer>
-    <mat-drawer-content class="header-bar">
-        <app-header-bar></app-header-bar>
-        <!-- <div class="main" [@routerTransition]="getPage(appOutlet)">
-            <router-outlet #appOutlet="outlet"></router-outlet>
-        </div> -->
-        <router-outlet></router-outlet>
-    </mat-drawer-content>
-</mat-drawer-container>
+<div *ngIf="router.url == '/login'">
+    <app-login></app-login>
+</div>
+<div *ngIf="router.url != '/login'">
+    <mat-drawer-container class="drawer">
+        <mat-drawer class="side-bar" mode="side" opened>
+            <app-side-bar></app-side-bar>
+        </mat-drawer>
+        <mat-drawer-content class="header-bar">
+            <app-header-bar></app-header-bar>
+            <router-outlet></router-outlet>
+        </mat-drawer-content>
+    </mat-drawer-container>
+</div>

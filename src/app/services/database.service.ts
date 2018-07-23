@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
-import { map } from 'rxjs/operators';
+import { map, filter } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +8,7 @@ import { map } from 'rxjs/operators';
 export class DatabaseService {
 
   constructor(
-    private http:Http
+    private http: Http
   ) { }
 
   get(url) {
@@ -30,5 +30,28 @@ export class DatabaseService {
 
   delete(url, id) {
     return this.http.delete(url + '/' + id).toPromise();
+  }
+
+  login(url, data) {
+    return this.post(url, data).then((res: any) => {
+      let user = JSON.parse(res._body).data;
+      if (user && Object.keys(user).length) {
+        localStorage.setItem('user', JSON.stringify(user));
+      }
+    });
+  }
+
+  logout() {
+    localStorage.removeItem('token');
+    return this.getToken();
+  }
+
+  setToken(data) {
+    localStorage.setItem('token', data);
+    return;
+  }
+
+  getToken() {
+    return localStorage.getItem('token');
   }
 }

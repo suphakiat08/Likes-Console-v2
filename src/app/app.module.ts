@@ -21,6 +21,7 @@ import { DatabaseService } from './services/database.service';
 import { CookieService } from 'ngx-cookie-service';
 import { MyCookieService } from './services/cookie.service';
 import { FacebookService } from './services/facebook.service';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +34,7 @@ import { FacebookService } from './services/facebook.service';
     ManageMonitorComponent,
     DeviceDialogComponent,
     DeleteDialogComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

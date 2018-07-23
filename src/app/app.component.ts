@@ -1,16 +1,26 @@
-import { Component } from '@angular/core';
-import { routerTransition } from './router/animetion';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
-  // animations: [routerTransition],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent {
-  title = 'app';
+export class AppComponent implements OnInit {
 
-  getPage(outlet) {
-    return outlet.activatedRouteData['page'];
+  private user: any;
+  constructor(
+    private router: Router
+  ) { }
+
+  ngOnInit() {
+    this.user = localStorage.getItem('user');
+    this.getPage();
+  }
+
+  getPage() {
+    if (!this.user) {
+      this.router.navigateByUrl('login');
+    }
   }
 }

@@ -1,0 +1,66 @@
+.card {
+    font-family: 'Kanit', sans-serif; 
+    width: 900px; 
+    height: 520px; 
+    margin: 150px auto; 
+    padding: 0px; 
+    background-color: #ffffffd0;
+}
+
+.content-left {
+    width: 50%; 
+    height: 100%; 
+    background: #3963b6; 
+    color: rgb(240, 240, 240);
+}
+
+.contetn-right {
+    padding-top: 40px;
+}
+
+.content-left .content-left-border {
+    border: rgb(240, 240, 240) 4px solid; 
+    width: 80%; 
+    margin: 135px auto; 
+    padding: 35px;
+}
+
+.font-30 {
+    font-size: 30pt;
+}
+
+.font-15 {
+    font-size: 15pt;
+}
+
+.img-lock {
+    width: 150px; 
+    height: 150px; 
+    margin: 60px auto 20px auto;
+}
+
+.form {
+    text-align: center; 
+    margin-top: 15px;
+}
+
+.form-field {
+    font-family: 'Kanit', sans-serif;
+    width: 85%;
+}
+
+.button {
+    font-family: 'Kanit', sans-serif;
+    font-size: 16px; 
+    width: 85%; 
+    height: 50px; 
+    margin: 15px; 
+    background-color: #3563beef; 
+    color: #fff;
+}
+
+.invalid {
+    color: red; 
+    margin: 10px 0px 0px 35px; 
+    text-align: left;
+}

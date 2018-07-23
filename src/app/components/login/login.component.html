@@ -1,0 +1,32 @@
+<mat-card class="card">
+  <div class="col-md-6 text-center content-left">
+    <div class="content-left-border">
+      <div class="font-30">Welcome</div>
+      <div class="font-15">to</div>
+      <div class="font-30">Smart Label</div>
+      <div class="font-15">Administrator</div>
+    </div>
+  </div>
+  <div class="col-md-6 text-center content-right">
+    <img src="/assets/unlock.png" class="img-lock" [draggable]="false">
+    <form class="form" [formGroup]="mainGroup" (submit)="login()" autocomplete="off">
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Username</mat-label>
+        <input matInput formControlName="username" [errorStateMatcher]="matcher">
+        <mat-error *ngIf="mainGroup.get('username').hasError('required')">
+          Please enter username.
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="outline" class="form-field">
+        <mat-label>Password</mat-label>
+        <input matInput formControlName="password" [errorStateMatcher]="matcher" [type]="hide ? 'password' : 'text'">
+        <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility' : 'visibility_off'}}</mat-icon>
+        <mat-error *ngIf="mainGroup.get('password').hasError('required')">
+          Please enter password.
+        </mat-error>
+      </mat-form-field>
+      <div class="invalid" *ngIf="invalid">The username or password is incorrect.</div>
+      <button mat-raised-button class="button">Login</button>
+    </form>
+  </div>
+</mat-card>
