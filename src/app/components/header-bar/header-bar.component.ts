@@ -8,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class HeaderBarComponent implements OnInit {
 
-  private name: string;
+  name: string;
 
   constructor(
     private router: Router

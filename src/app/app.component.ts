@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
 
   private user: any;
   constructor(
-    private router: Router
+    public router: Router
   ) { }
 
   ngOnInit() {

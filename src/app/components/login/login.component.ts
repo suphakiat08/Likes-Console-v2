@@ -12,9 +12,9 @@ import { sha256 } from 'js-sha256';
 })
 export class LoginComponent implements OnInit {
 
-  private hide = true;
-  private mainGroup: any;
-  private invalid = false;
+  mainGroup: any;
+  hide = true;
+  invalid = false;
 
   constructor(
     private service: DatabaseService,
