@@ -96,11 +96,13 @@ export class DevicesComponent implements OnInit {
     this.service.get(
       'https://localhost:3000/devices'
     ).then((res: any) => {
-      this.dataSource = new MatTableDataSource(res.data);
-      this.dataSource.paginator = this.paginator;
-      this.initFilter();
-      this.filter(this.filter_temp);
-      setTimeout(() => { this.pageReady = true }, 500);
+      try {
+        this.dataSource = new MatTableDataSource(res.data);
+        this.dataSource.paginator = this.paginator;
+        this.initFilter();
+        this.filter(this.filter_temp);
+        setTimeout(() => { this.pageReady = true }, 500);
+      } catch (e) { }
     });
   }
 

@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
-import { map } from 'rxjs/operators';
+import { Http, Headers, RequestOptions } from '@angular/http';
 
 @Injectable({
   providedIn: 'root'
@@ -12,46 +11,74 @@ export class DatabaseService {
   ) { }
 
   get(url) {
-    return this.http.get(url)
-      .pipe(map(res => res.json())).toPromise();
+    let headers = this.getHeader();
+    return this.http.get(url, headers)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
   }
 
   post(url, params) {
-    return this.http.post(url, params).toPromise();
+    let headers = this.getHeader();
+    return this.http.post(url, params, headers)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
   }
 
   put(url, id, params) {
-    return this.http.put(url + '/' + id, params).toPromise();
+    let headers = this.getHeader();
+    return this.http.put(url + '/' + id, params, headers)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
   }
 
   putAll(url, params) {
-    return this.http.put(url, params).toPromise();
+    let headers = this.getHeader();
+    return this.http.put(url, params, headers)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
   }
 
   delete(url, id) {
-    return this.http.delete(url + '/' + id).toPromise();
+    let headers = this.getHeader();
+    return this.http.delete(url + '/' + id, headers)
+      .toPromise()
+      .then(response => response.json())
+      .catch(this.handleError);
   }
 
-  login(url, data) {
-    return this.post(url, data).then((res: any) => {
-      let user = JSON.parse(res._body).data;
-      if (user && Object.keys(user).length) {
-        localStorage.setItem('user', JSON.stringify(user));
+  async login(url, data) {
+    await this.post(url, data).then(res => {
+      if (res.token && res.display_name) {
+        localStorage.setItem('user', res.display_name);
+        localStorage.setItem('token', res.token);
       }
     });
-  }
-
-  logout() {
-    localStorage.removeItem('token');
-    return this.getToken();
-  }
-
-  setToken(data) {
-    localStorage.setItem('token', data);
     return;
   }
 
-  getToken() {
-    return localStorage.getItem('token');
+  logout() {
+    localStorage.removeItem('user');
+    localStorage.removeItem('token');
+    return;
+  }
+
+  getToken(str) {
+    return localStorage.getItem(str);
+  }
+
+  private getHeader() {
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    headers.append('authorization', localStorage.getItem('token'));
+    return new RequestOptions({ headers: headers });
+  }
+
+  private handleError(error) {
+    let errMsg = (error.message) ? error.message :
+      error.status ? error.status + '-' + error.statusText : 'Server error';
   }
 }

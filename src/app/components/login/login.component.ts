@@ -22,7 +22,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-    if (localStorage.getItem('user')) {
+    if (localStorage.getItem('user') && localStorage.getItem('token')) {
       this.router.navigateByUrl('/device');
     }
     this.mainGroup = new FormGroup({
@@ -37,12 +37,14 @@ export class LoginComponent implements OnInit {
       hash.update(this.mainGroup.value.password);
       this.mainGroup.value.password = hash.hex();
 
-      await this.service.login(
-        'https://localhost:3000/login',
-        this.mainGroup.value
-      );
+      try {
+        await this.service.login(
+          'https://localhost:3000/login',
+          this.mainGroup.value
+        );
+      } catch (e) { }
 
-      if (localStorage.getItem('user')) {
+      if (localStorage.getItem('user') && localStorage.getItem('token')) {
         this.router.navigateByUrl('/device');
       } else {
         this.invalid = true;

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DatabaseService } from '../../services/database.service';
 
 @Component({
   selector: 'app-header-bar',
@@ -11,14 +12,15 @@ export class HeaderBarComponent implements OnInit {
   name: string;
 
   constructor(
-    private router: Router
+    private router: Router,
+    private service: DatabaseService
   ) { }
 
   ngOnInit() {
     try {
-      let user = JSON.parse(localStorage.getItem('user'));
-      this.name = user.display_name.substring(0, 1).toLocaleUpperCase() +
-        user.display_name.substring(1, user.display_name.length);
+      let user = localStorage.getItem('user');
+      this.name = user.substring(0, 1).toLocaleUpperCase() +
+        user.substring(1, user.length);
     } catch (e) { }
   }
 
@@ -31,7 +33,7 @@ export class HeaderBarComponent implements OnInit {
   }
 
   logout() {
-    localStorage.removeItem('user');
+    this.service.logout();
     this.router.navigateByUrl('/login');
   }
 }
