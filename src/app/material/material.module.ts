@@ -22,6 +22,7 @@ import {
     MatChipsModule,
     MatDatepickerModule,
     MatNativeDateModule,
+    MatExpansionModule
 } from '@angular/material';
 
 @NgModule({
@@ -48,6 +49,7 @@ import {
         MatChipsModule,
         MatDatepickerModule,
         MatNativeDateModule,
+        MatExpansionModule
     ],
     exports: [
         MatToolbarModule,
@@ -72,6 +74,7 @@ import {
         MatChipsModule,
         MatDatepickerModule,
         MatNativeDateModule,
+        MatExpansionModule
     ]
 })
 

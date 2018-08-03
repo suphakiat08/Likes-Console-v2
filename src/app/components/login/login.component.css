@@ -1,42 +1,23 @@
 .card {
     font-family: 'Kanit', sans-serif; 
-    width: 900px; 
-    height: 520px; 
-    margin: 150px auto; 
     padding: 0px; 
     background-color: #ffffffd0;
-}
-
-.content-left {
-    width: 50%; 
-    height: 100%; 
-    background: #3963b6; 
-    color: rgb(240, 240, 240);
-}
-
-.contetn-right {
-    padding-top: 40px;
-}
-
-.content-left .content-left-border {
-    border: rgb(240, 240, 240) 4px solid; 
-    width: 80%; 
-    margin: 135px auto; 
-    padding: 35px;
 }
 
 .font-30 {
     font-size: 30pt;
 }
 
+.font-25 {
+    font-size: 25pt;
+}
+
 .font-15 {
     font-size: 15pt;
 }
 
-.img-lock {
-    width: 150px; 
-    height: 150px; 
-    margin: 60px auto 20px auto;
+.font-15 {
+    font-size: 10pt;
 }
 
 .form {
@@ -49,18 +30,198 @@
     width: 85%;
 }
 
-.button {
-    font-family: 'Kanit', sans-serif;
-    font-size: 16px; 
-    width: 85%; 
-    height: 50px; 
-    margin: 15px; 
-    background-color: #3563beef; 
-    color: #fff;
+/* desktop screen */
+@media only screen 
+and (min-width: 992px) {
+    .card {
+        width: 900px; 
+        height: 520px; 
+    }
+
+    .content-left {
+        width: 50%; 
+        height: 100%; 
+        background: #3963b6; 
+        color: rgb(240, 240, 240);
+    }
+
+    .content-right-border {
+        display: none;
+    }
+
+    .content-left-border {
+        border: rgb(5, 5, 5) 4px solid; 
+        width: 80%; 
+        margin: 135px auto; 
+        padding: 35px;
+    }
+
+    .content-left .content-left-border {
+        border: rgb(240, 240, 240) 4px solid; 
+        width: 80%; 
+        margin: 135px auto; 
+        padding: 35px;
+    }
+
+    .img-lock {
+        width: 150px; 
+        height: 150px; 
+        margin: 60px auto 20px auto;
+    }
+
+    .button {
+        font-family: 'Kanit', sans-serif;
+        font-size: 16px; 
+        width: 85%; 
+        height: 50px; 
+        margin: 15px; 
+        background-color: #3563beef; 
+        color: #fff;
+    }
+
+    .invalid {
+        color: red; 
+        margin: 10px 0px 0px 35px; 
+        text-align: left;
+    }
+
+    @media only screen
+    and (min-height: 1400px) {
+        .card {
+            margin: 380px auto 0px auto;
+        }
+    }
+
+    @media only screen 
+    and (max-height: 1399px) {
+        .card {
+            margin: 360px auto 0px auto;
+        }
+    }
+
+    @media only screen 
+    and (max-height: 1299px) {
+        .card {
+            margin: 320px auto 0px auto;
+        }
+    }
+
+    @media only screen 
+    and (max-height: 1199px) {
+        .card {
+            margin: 260px auto 0px auto;
+        }
+    }
+
+    @media only screen 
+    and (max-height: 1099px) {
+        .card {
+            margin: 220px auto 0px auto;
+        }
+    }
+
+    @media only screen 
+    and (max-height: 999px) {
+        .card {
+            margin: 190px auto 0px auto;
+        }
+    }
+
+    @media only screen 
+    and (max-height: 899px) {
+        .card {
+            margin: 130px auto 0px auto;
+        }
+    }
+
+    @media only screen 
+    and (max-height: 799px) {
+        .card {
+            margin: 90px auto 0px auto;
+        }
+    }
+
+    @media only screen 
+    and (max-height: 699px) {
+        .card {
+            margin: 40px auto 0px auto;
+        }
+    }
 }
 
-.invalid {
-    color: red; 
-    margin: 10px 0px 0px 35px; 
-    text-align: left;
+/* phone screen */
+@media only screen 
+and (max-width: 991px) {
+    .card {
+        width: 90%; 
+        height: 700px;
+        margin: auto;
+    }
+
+    .content-left {
+        display: none;
+    }
+
+    .col-md-6 {
+        padding: 0px;
+    }
+
+    .content-right .content-right-border {
+        color: #fff;
+        background-color: #3563be;
+        width: 100%;  
+        padding-top: 12px;
+        padding-bottom: 20px;
+    }
+
+    .img-lock {
+        width: 150px; 
+        height: 150px; 
+        margin: 60px auto 20px auto;
+    }
+
+    .button {
+        font-family: 'Kanit', sans-serif;
+        font-size: 16px; 
+        width: 85%; 
+        height: 50px; 
+        margin: 15px; 
+        background-color: #3563beef; 
+        color: #fff;
+    }
+
+    .invalid {
+        color: red; 
+        margin: 10px 0px 0px 7%; 
+        text-align: left;
+    }
+    
+    @media only screen
+    and (min-height: 1000px) {
+        .card {
+            margin-top: 140px;
+        }
+    }
+    
+    @media only screen 
+    and (max-height: 999px) {
+        .card {
+            margin-top: 100px;
+        }
+    }
+
+    @media only screen
+    and (max-height: 899px),
+    (max-width: 599px) {
+        .card {
+            width: 100vw; 
+            height: 100vh;
+            margin: 0px;
+        }
+    }
+
+    @media only screen 
+    and (max-height: 499) {
+        
+    }
 }

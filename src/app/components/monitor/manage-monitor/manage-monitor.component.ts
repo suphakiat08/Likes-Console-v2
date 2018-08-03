@@ -105,7 +105,7 @@ export class ManageMonitorComponent implements OnInit {
     await this.dialog.open(DeviceDialogComponent, {
       data: {},
       width: '608px',
-      height: '760px',
+      maxHeight: (window.screen.height - 200) + 'px',
       autoFocus: false
     }).afterClosed().subscribe(result => {
       if (result) {

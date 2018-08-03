@@ -48,14 +48,14 @@
       <mat-checkbox color="primary" [checked]="other.promotion" (change)="other.promotion = !other.promotion">
         <span class="checkbox-lable">Promotion</span>
       </mat-checkbox>
+      <mat-checkbox color="primary" [checked]="other.hot_sale" (change)="other.hot_sale = !other.hot_sale">
+        <span class="checkbox-lable">Hot Sale</span>
+      </mat-checkbox>
       <mat-checkbox color="primary" [checked]="other.stock" (change)="other.stock = !other.stock">
         <span class="checkbox-lable">Stock Clearance</span>
       </mat-checkbox>
       <mat-checkbox color="primary" [checked]="other.limited" (change)="other.limited = !other.limited">
         <span class="checkbox-lable">Limited Edition</span>
-      </mat-checkbox>
-      <mat-checkbox color="primary" [checked]="other.hot_sale" (change)="other.hot_sale = !other.hot_sale">
-        <span class="checkbox-lable">Hot Sale</span>
       </mat-checkbox>
     </div>
 
@@ -86,13 +86,8 @@
       </div>
     </div>
   </div>
-  <div class="rows footer">
-    <div class="col-sm-4">
-      <button mat-raised-button type="reset">Clear</button>
-    </div>
-    <div class="col-sm-8 text-right">
-      <button mat-raised-button class="submit" (click)="submit()">Submit</button>
-      <button mat-raised-button class="cancel" mat-dialog-close>Cancel</button>
-    </div>
+  <div class="footer text-right">
+    <button mat-raised-button class="submit" (click)="submit()">Submit</button>
+    <button mat-raised-button class="cancel" mat-dialog-close>Cancel</button>
   </div>
 </form>

@@ -37,12 +37,29 @@
       <ng-container matColumnDef="operation">
         <th mat-header-cell *matHeaderCellDef style="text-align: center;">Action</th>
         <td mat-cell *matCellDef="let data">
-          <button mat-button (click)="openDialogEdit(data)">
-            <i class="material-icons">edit</i>
-          </button>
-          <button mat-button (click)="openDialogDelete(data._id, data.device.serial_number)">
-            <i class="material-icons">delete</i>
-          </button>
+          <div class="action-big-screen">
+            <button mat-button (click)="openDialogEdit(data)">
+              <i class="material-icons">edit</i>
+            </button>
+            <button mat-button (click)="openDialogDelete(data._id, data.device.serial_number)">
+              <i class="material-icons">delete</i>
+            </button>
+          </div>
+          <div class="action-small-screen">
+            <button mat-button class="button" [matMenuTriggerFor]="menu">
+              <i class="material-icons">more_vert</i>
+            </button>
+            <mat-menu #menu="matMenu">
+              <button mat-menu-item (click)="openDialogEdit(data)">
+                <i class="material-icons">edit</i>
+                <span> Edit</span>
+              </button>
+              <button mat-menu-item (click)="openDialogDelete(data._id, data.device.serial_number)">
+                <i class="material-icons">delete</i>
+                <span> Delete</span>
+              </button>
+            </mat-menu>
+          </div>
         </td>
       </ng-container>
 
@@ -58,26 +75,65 @@
   </button>
 
   <div class="row card">
-    <div class="col-md-3 text-center">
+    <div class="col-xs-3 text-center">
       <button mat-button class="all-device" (click)="filterStatus('')">
         {{dataSource?.data?.length}} device.
       </button>
     </div>
-    <div class="col-md-3 text-center">
+    <div class="col-xs-3 text-center">
       <button mat-button class="switch-off" (click)="filterStatus('switch off')">
         Switch off {{dataStatus?.switch_off}} device.
       </button>
     </div>
-    <div class="col-md-3 text-center">
+    <div class="col-xs-3 text-center">
       <button mat-button class="online" (click)="filterStatus('online')">
         Online {{dataStatus?.online}} device.
       </button>
     </div>
-    <div class="col-md-3 text-center">
+    <div class="col-xs-3 text-center">
       <button mat-button class="offline" (click)="filterStatus('offline')">
         Offline {{dataStatus?.offline}} device.
       </button>
     </div>
+  </div>
+
+  <div class="device-panel">
+    <mat-expansion-panel *ngFor="let data of dataSource?.filteredData">
+      <mat-expansion-panel-header>
+        <mat-panel-title class="col-xs-7" style="margin-left: -15px">
+          {{data.prod_name}}
+        </mat-panel-title>
+        <mat-panel-description class="col-xs-5">
+          {{setStatus(data.status)}}
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+      <p class="content" style="font-family: 'Kanit', sans-serif;">
+        <b>Serial Number</b>: {{data.device.serial_number}}
+      </p>
+      <p class="content" style="font-family: 'Kanit', sans-serif;">
+        <b>Device Detail</b>: {{data.device.detail}}
+      </p>
+      <p class="content" style="font-family: 'Kanit', sans-serif;">
+        <b>Facebook URL</b>: {{data.url}}
+      </p>
+      <p class="content" style="font-family: 'Kanit', sans-serif;">
+        <b>Price</b>: {{data.price}} Baht
+      </p>
+      <p>
+        <b>Switch</b>:
+        <mat-slide-toggle color="primary" (change)="switchChange(data)" [checked]="data.switch" style="margin-left: 5px;"></mat-slide-toggle>
+      </p>
+      <p class="text-right">
+        <button mat-button (click)="openDialogEdit(data)">
+          <i class="material-icons">edit</i>
+          <span> Edit</span>
+        </button>
+        <button mat-button (click)="openDialogDelete(data._id, data.device.serial_number)">
+          <i class="material-icons">delete</i>
+          <span> Delete</span>
+        </button>
+      </p>
+    </mat-expansion-panel>
   </div>
 </div>
 <mat-spinner class="spinner" *ngIf="!pageReady"></mat-spinner>

@@ -23,4 +23,12 @@ export class AppComponent implements OnInit {
       this.router.navigateByUrl('login');
     }
   }
+
+  screenSize(type) {
+    if (type == 'small') {
+      return window.screen.width < 1200 ? true : false;
+    } else {
+      return window.screen.width >= 1200 ? true : false;
+    }
+  }
 }

@@ -6,10 +6,36 @@
 @import url('https://fonts.googleapis.com/css?family=Kanit:300,400|Noto+Sans:400,700|Roboto:300,400,500');
 
 body {
-    background-color: #dddddd;
+    background-color: #ddd;
     font-family: 'Kanit', sans-serif;
 }
 
+::-webkit-scrollbar { 
+    display: none; 
+}
+
+/* material panel */
+.mat-expansion-panel-header-title {
+    font-family: 'Kanit', sans-serif;
+    color: #3562be;
+}
+
+/* material checkbox */
 .mat-pseudo-checkbox-checked {
     background: #3562be;
+}
+
+.mat-selection-list .mat-list-item .mat-list-item-content-reverse, .mat-selection-list .mat-list-option .mat-list-item-content-reverse {
+    padding: 3px !important;
+}
+
+@media only screen
+and (max-width: 699px) {
+    .mat-checkbox {
+        display: table-footer-group !important;
+    }
+
+    .mat-checkbox label {
+        margin-bottom: 5px
+    }
 }

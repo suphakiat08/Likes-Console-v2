@@ -3,39 +3,6 @@
     width: 75%;
 }
 
-.card {
-    width: 76.9%;
-    margin: 20px auto 0px auto;
-}
-
-.card div .mat-button {
-    width: 100%;
-    height: 50px;
-    font-family: 'Kanit', sans-serif;
-    font-size: 14pt;
-    border-radius: 5px;
-}
-
-.card div .all-device {
-    color: rgb(255, 255, 255);
-    background-color: #3563beef;
-}
-
-.card div .switch-off {
-    color: rgb(255, 255, 255);
-    background-color: rgba(158, 158, 158, 0.548);
-}
-
-.card div .online {
-    color: #fff;
-    background-color: rgba(0, 179, 24, 0.616);
-}
-
-.card div .offline {
-    color: #fff;
-    background-color: rgba(223, 15, 0, 0.603);
-}
-
 table {
     width: 100%;
     font-family: 'Kanit', sans-serif;
@@ -51,41 +18,13 @@ th.mat-column-position {
     width: 10%;
 }
 
-th.mat-column-prod_name {
-    width: 20%;
-}
-
-th.mat-column-device {
-    width: 25%;
-}
-
-th.mat-column-switch {
-    width: 10%;
-}
-
-th.mat-column-status {
-    width: 10%;
-}
-
-th.mat-column-operation {
-    width: 15%;
-}
-
 .mat-column-position, .mat-column-switch, .mat-column-status, .mat-column-operation {
     text-align: center
 }
 
-.add {
-    background-color: rgba(238, 238, 238, 0.959);
-    color: #000000;
-    position: absolute;
-    top: 195px;
-    left: 86%;
-}
-
 .filter-bar {
     width: 75.1%;
-    margin: 40px auto 20px auto;
+    margin: 100px auto 20px auto;
 }
 
 .filter {
@@ -101,7 +40,223 @@ th.mat-column-operation {
     background-repeat: no-repeat;
 }
 
-.spinner {
-    position: relative;
-    margin: 22% auto;
+.card-footer {
+    position: fixed;
+    left: 0;
+    bottom: 45px;
+    width: 100%;
+    min-width: 300px;
+    height: 46px;
+    padding: 2px;
+    z-index: 1;
+}
+
+/* labtop screen */
+@media only screen
+and (min-width: 800px) {
+    .device-panel {
+        display: none;
+    }
+
+    .add {
+        background-color: rgba(238, 238, 238, 0.959);
+        color: #000000;
+        position: absolute;
+        top: 195px;
+        left: 86%;
+    }
+
+    /* big screen */
+    @media only screen
+    and (min-width: 1200px) {
+        .action-small-screen {
+            display: none;
+        }
+
+        .card {
+            width: 76.9%;
+            margin: 20px auto 0px auto;
+        }
+        
+        .card div .mat-button {
+            width: 100%;
+            height: 50px;
+            font-family: 'Kanit', sans-serif;
+            font-size: 14pt;
+            border-radius: 5px;
+        }
+        
+        .card div .all-device {
+            color: rgb(255, 255, 255);
+            background-color: #3563beef;
+        }
+        
+        .card div .switch-off {
+            color: rgb(255, 255, 255);
+            background-color: rgba(158, 158, 158, 0.548);
+        }
+        
+        .card div .online {
+            color: #fff;
+            background-color: rgba(0, 179, 24, 0.616);
+        }
+        
+        .card div .offline {
+            color: #fff;
+            background-color: rgba(223, 15, 0, 0.603);
+        }
+
+        .spinner {
+            position: relative;
+            margin: calc(50vh - 55px) auto;
+        }
+
+        @media only screen
+        and (min-width: 1900px) {
+            
+            th.mat-column-prod_name {
+                width: 20%;
+            }
+            
+            th.mat-column-device {
+                width: 25%;
+            }
+            
+            th.mat-column-switch {
+                width: 10%;
+            }
+            
+            th.mat-column-status {
+                width: 10%;
+            }
+            
+            th.mat-column-operation {
+                width: 15%;
+            }
+        }
+
+        @media only screen 
+        and (max-width: 1899px)
+        and (min-width: 1599px) {
+            th.mat-column-prod_name {
+                width: 20%;
+            }
+            
+            th.mat-column-device {
+                width: 20%;
+            }
+            
+            th.mat-column-switch {
+                width: 10%;
+            }
+            
+            th.mat-column-status {
+                width: 10%;
+            }
+            
+            th.mat-column-operation {
+                width: 20%;
+            }
+        }
+
+        @media only screen
+        and (max-width: 1226px)
+        and (min-width: 1199px) {
+            td.mat-cell:last-child, td.mat-footer-cell:last-child, th.mat-header-cell:last-child {
+                padding-right: 6px;
+            }
+        }
+    }
+
+    /* small screen */
+    @media only screen
+    and (max-width: 1199px) {
+        .filter-bar {
+            margin: 30px auto 20px auto;
+        }
+
+        .add {
+            top: 240px;
+        }
+
+        .card {
+            display: none;
+        }
+
+        .spinner {
+            position: relative;
+            margin: calc(50vh - 156px) auto;
+        }
+
+        @media only screen
+        and (min-width: 1000px) {
+            .action-small-screen {
+                display: none;
+            }
+        }
+
+        @media only screen
+        and (max-width: 999px) {
+            .action-big-screen {
+                display: none;
+            }
+
+            .action-small-screen {
+                display: unset;
+            }
+        }
+    }
+}
+
+/* phone screen */
+@media only screen
+and (max-width: 799px) {
+    .filter-bar {
+        width: 100%;
+        margin: 0px;
+    }
+
+    .add {
+        background-color: rgba(238, 238, 238, 0.959);
+        color: #000000;
+        position: fixed;
+        bottom: 65px;
+        right: 15px;
+        z-index: 1;
+    }
+
+    .device-table {
+        display: none;
+    }
+
+    .card {
+        display: none;
+    }
+
+    .device-panel .content {
+        word-wrap: break-word;
+    }
+
+    .mat-expansion-panel:last-child {
+        margin-bottom: 46px;
+    }
+
+    .spinner {
+        position: relative;
+        margin: calc(50vh - 156px) auto;
+    }
+}
+
+@media only screen
+and (max-width: 1499px) {
+    .card div .mat-button {
+        font-size: 12pt;
+    }
+}
+
+@media only screen
+and (max-width: 1399px) {
+    .card div .mat-button {
+        font-size: 10pt;
+    }
 }

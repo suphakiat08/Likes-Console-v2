@@ -31,9 +31,11 @@ export class MonitorComponent implements OnInit {
 
   ngOnInit() {
     this.getMonitor();
-    setTimeout(() => {
-      this.ngOnInit();
-    }, 5000);
+    if (window.screen.width >= 800) {
+      setTimeout(() => {
+        this.ngOnInit();
+      }, 5000);
+    }
   }
 
   initStatus() {
@@ -160,7 +162,7 @@ export class MonitorComponent implements OnInit {
     this.dialog.open(ManageMonitorComponent, {
       data: {},
       width: '800px',
-      maxHeight: '900px',
+      maxHeight: (window.screen.height - 100) + 'px',
       autoFocus: false
     }).afterClosed().subscribe(result => {
       if (result) {
@@ -173,7 +175,7 @@ export class MonitorComponent implements OnInit {
     this.dialog.open(ManageMonitorComponent, {
       data: device,
       width: '800px',
-      maxHeight: '900px',
+      maxHeight: (window.screen.height - 100) + 'px',
       autoFocus: false
     }).afterClosed().subscribe(result => {
       if (result) {

@@ -1,43 +1,65 @@
-<div class="text-center icons">
-  <img src="/assets/icons.png" width="220px" [draggable]="false">
+<div class="big-screen-size">
+  <div class="text-center icons">
+    <img src="/assets/icons.png" width="220px" [draggable]="false">
+  </div>
+
+  <hr>
+
+  <div class="font-head">
+    Account Owner
+  </div>
+
+  <div class="font-content">
+    <span *ngIf="users?.name">{{users?.name}}</span>
+    <span *ngIf="!users?.name">-</span>
+  </div>
+
+  <div class="font-head">
+    Token
+  </div>
+
+  <div class="font-content">
+    <span *ngIf="users?.token">{{users?.token}}</span>
+    <span *ngIf="!users?.token">-</span>
+  </div>
+
+  <div class="count">
+    <span class="no-token" *ngIf="!users?.token">
+      No token
+    </span>
+    <!-- exire - now - 7 hours -->
+    <span class="active" *ngIf="now <= users?.expire">
+      {{ (users?.expire - now) - 7 * 60 * 60 * 1000 | date:'HH:mm:ss'}}
+    </span>
+    <span class="expire" *ngIf="now > users?.expire && users?.token">
+      Expired
+    </span>
+  </div>
+
+  <hr>
+
+  <div class="button text-center">
+    <button mat-raised-button class="generate" (click)="generate()">Generate</button>
+    <button mat-raised-button class="clear" (click)="clear()">Clear</button>
+  </div>
 </div>
-
-<hr>
-
-<div class="font-head">
-  Account Owner
-</div>
-
-<div class="font-content">
-  <span *ngIf="users?.name">{{users?.name}}</span>
-  <span *ngIf="!users?.name">-</span>
-</div>
-
-<div class="font-head">
-  Token
-</div>
-
-<div class="font-content">
-  <span *ngIf="users?.token">{{users?.token}}</span>
-  <span *ngIf="!users?.token">-</span>
-</div>
-
-<div class="count">
-  <span class="no-token" *ngIf="!users?.token">
-    No token
-  </span>
-  <!-- exire - now - 7 hours -->
-  <span class="active" *ngIf="now <= users?.expire">
-    {{ (users?.expire - now) - 7 * 60 * 60 * 1000 | date:'HH:mm:ss'}}
-  </span>
-  <span class="expire" *ngIf="now > users?.expire && users?.token">
-    Expired
-  </span>
-</div>
-
-<hr>
-
-<div class="button text-center">
-  <button mat-raised-button class="generate" (click)="generate()">Generate</button>
-  <button mat-raised-button class="clear" (click)="clear()">Clear</button>
+<div class="small-screen-size">
+  <div class="text-center title-bar">
+    <div class="title">Smart Label</div>
+  </div>
+  <div class="footer-bar button">
+    <span class="count">
+      <span class="no-token" *ngIf="!users?.token">
+        No token
+      </span>
+      <!-- exire - now - 7 hours -->
+      <span class="active" *ngIf="now <= users?.expire">
+        {{ (users?.expire - now) - 7 * 60 * 60 * 1000 | date:'HH:mm:ss'}}
+      </span>
+      <span class="expire" *ngIf="now > users?.expire && users?.token">
+        Expired
+      </span>
+    </span>
+    <button mat-raised-button class="generate" (click)="generate()">Generate</button>
+  </div>
 </div>

@@ -1,18 +1,31 @@
-.drawer {
-    width: 100%;
-    height: 100%;
-    margin: 0px;
+@media only screen
+and (min-width: 1200px) {
+    .left-box {
+        width: 300px;
+        background-color: #3562be;
+        overflow: hidden;
+    }
+    
+    .left-box .content {
+        width: 100%;
+        min-width: 300px;
+    }
+    
+    .header-bar {
+        z-index: 1;
+        position: fixed;
+        width: calc(100% - 300px);
+        min-height: 55px;
+    }
+
+    .small-screen-size {
+        display: none;
+    }
 }
 
-.side-bar {
-    position: fixed;
-    width: 15%;
-    min-width: 300px;
-    background-color: #3562be;
-}
-
-.header-bar {
-    position: fixed;
-    width: 85%;
-    height: 100%;
+@media only screen
+and (max-width: 1199px) {
+    .big-screen-size {
+        display: none;
+    }
 }

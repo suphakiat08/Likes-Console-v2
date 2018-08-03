@@ -2,13 +2,20 @@
     <router-outlet></router-outlet>
 </div>
 <div *ngIf="router.url != '/login'">
-    <mat-drawer-container class="drawer">
-        <mat-drawer class="side-bar" mode="side" opened>
-            <app-side-bar></app-side-bar>
-        </mat-drawer>
-        <mat-drawer-content class="header-bar">
-            <app-header-bar></app-header-bar>
-            <router-outlet></router-outlet>
-        </mat-drawer-content>
-    </mat-drawer-container>
+    <div class="big-screen-size">
+        <mat-drawer-container style="height: 100vh; background: #ddd;">
+            <mat-drawer class="left-box" mode="side" opened>
+                <app-side-bar class="content"></app-side-bar>
+            </mat-drawer>
+            <mat-drawer-content>
+                <app-header-bar class="header-bar"></app-header-bar>
+                <router-outlet class="content" *ngIf="screenSize('big')"></router-outlet>
+            </mat-drawer-content>
+        </mat-drawer-container>
+    </div>
+    <div class="small-screen-size">
+        <app-side-bar></app-side-bar>
+        <app-header-bar class="header-bar"></app-header-bar>
+        <router-outlet *ngIf="screenSize('small')"></router-outlet>
+    </div>
 </div>

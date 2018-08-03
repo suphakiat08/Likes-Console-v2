@@ -25,9 +25,6 @@ export class DevicesComponent implements OnInit {
 
   ngOnInit() {
     this.getDevices();
-    setTimeout(() => {
-      this.ngOnInit();
-    }, 10000);
   }
 
   initFilter() {
